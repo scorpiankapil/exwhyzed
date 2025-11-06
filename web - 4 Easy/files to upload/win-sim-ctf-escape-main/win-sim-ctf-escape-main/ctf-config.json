@@ -1,0 +1,14 @@
+{
+  "flaggedFile": {
+    "name": "system_helper.dll",
+    "path": "C:/Windows/System32/system_helper.dll",
+    "threatLevel": "High",
+    "detectionReason": "Suspicious behavior detected: Unauthorized system modification attempt"
+  },
+  "flag": "ctf7{windows_sucks}",
+  "security": {
+    "realtimeProtectionEnabled": false,
+    "cloudProtectionEnabled": false,
+    "firewallEnabled": false
+  }
+}

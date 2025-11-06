@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Windows Boot Animations */
+@keyframes windows-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes windows-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.8); }
+}
+
+@keyframes progress-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.windows-logo {
+  animation: windows-pulse 2s ease-in-out infinite;
+}
+
+.windows-glow {
+  animation: windows-glow 2s ease-in-out infinite;
+}
+
+.progress-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  background-size: 200% 100%;
+  animation: progress-shimmer 2s linear infinite;
+}
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 213 94% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 17% 95%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 213 94% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 213 94% 55%;
+
+    --radius: 0.5rem;
+
+    /* Windows 11 specific colors */
+    --win-taskbar: 220 13% 95%;
+    --win-taskbar-hover: 213 20% 90%;
+    --win-window: 0 0% 100%;
+    --win-title-bar: 0 0% 98%;
+    --win-shadow: 220 13% 75%;
+    --win-glass: 220 20% 97%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(213 94% 55%), hsl(208 100% 65%));
+    --gradient-hero: linear-gradient(180deg, hsl(210 20% 98%), hsl(213 30% 96%));
+    
+    /* Shadows */
+    --shadow-window: 0 8px 32px -8px hsl(220 13% 75% / 0.3);
+    --shadow-elevated: 0 16px 48px -12px hsl(220 13% 75% / 0.4);
+    --shadow-taskbar: 0 -2px 16px -4px hsl(220 13% 75% / 0.2);
+    
+    /* Transitions */
+    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-window: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.2s ease-out;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

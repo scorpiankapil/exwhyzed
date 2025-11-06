@@ -1,0 +1,5 @@
+open terminal 
+enter command to delete the virus rm C:/Windows/System32/system_helper.dll
+
+once you remove it you'll get the flag 
+ctf7{windows_sucks}
