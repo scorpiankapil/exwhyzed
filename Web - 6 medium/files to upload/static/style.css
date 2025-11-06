@@ -1,0 +1,52 @@
+:root{
+  --bg-1: #0f1113;
+  --panel: #111214;
+  --accent: #ffcc00;
+  --muted: #9aa0a6;
+  --msg-bg: #1c1c1e;
+  --user-bg: #ffcc00;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+
+body{
+  background: linear-gradient(180deg,#071017 0%, #0b0b0d 100%);
+  display:flex;align-items:center;justify-content:center;padding:24px;
+  color:#fff;
+}
+
+.chat-wrapper{
+  width:420px;
+  max-width:96vw;
+  height:640px;
+  background:var(--panel);
+  border-radius:14px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+
+/* header */
+header{padding:18px 18px;border-bottom:1px solid rgba(255,255,255,0.03);}
+.title{display:flex;align-items:center;gap:12px}
+.avatar{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#ffecb3,#ffd24d);display:flex;align-items:center;justify-content:center;font-size:22px}
+header h1{margin:0;font-size:18px;color:var(--accent);font-weight:600}
+header p{margin:2px 0 0 0;color:var(--muted);font-size:12px}
+
+/* chat area */
+.chat-box{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-behavior:smooth}
+.user-msg,.bot-msg{max-width:82%;padding:12px 14px;border-radius:12px;line-height:1.35;font-size:14px}
+.user-msg{align-self:flex-end;background:var(--user-bg);color:#000;border-bottom-right-radius:6px}
+.bot-msg{align-self:flex-start;background:var(--msg-bg);color:#eaeaea;border-bottom-left-radius:6px}
+
+/* make links visible */
+.bot-msg a{color:var(--accent);text-decoration:underline}
+
+/* input area */
+.input-area{display:flex;padding:12px;border-top:1px solid rgba(255,255,255,0.03);gap:8px}
+#user-input{flex:1;padding:12px 14px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.03);outline:none;color:#fff;font-size:14px}
+#user-input::placeholder{color:var(--muted)}
+#send-btn{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;color:#000}
+
+.fade-in{animation:fadeIn .22s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}

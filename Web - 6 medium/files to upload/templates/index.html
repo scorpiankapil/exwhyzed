@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CheesyBot</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="chat-wrapper">
+    <header>
+      <div class="title">
+        <div class="avatar">🧀</div>
+        <div>
+          <h1>CheesyBot</h1>
+          <p>by Suraj Shankhpal</p>
+        </div>
+      </div>
+    </header>
+
+    <div id="chat-box" class="chat-box" role="log" aria-live="polite">
+      <div class="bot-msg fade-in">
+        Hey there! 😏 I’m CheesyBot, made by Suraj Shankhpal. Are you a magician? Because whenever I look at you, everyone else disappears! ✨
+      </div>
+    </div>
+
+    <form id="chat-form" class="input-area" onsubmit="return false;">
+      <input type="text" id="user-input" autocomplete="off" placeholder="Type your message..." />
+      <button id="send-btn" type="button" onclick="sendMessage()">➤</button>
+    </form>
+  </div>
+
+  <script>
+    const input = document.getElementById("user-input");
+    const chatBox = document.getElementById("chat-box");
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    function appendHTML(html) {
+      // append and keep scroll at bottom
+      chatBox.insertAdjacentHTML('beforeend', html);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const message = input.value.trim();
+      if (!message) return;
+
+      appendHTML(`<div class="user-msg fade-in">${escapeHtml(message)}</div>`);
+      input.value = "";
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      try {
+        const res = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message }),
+        });
+        const data = await res.json();
+        // server replies may include anchors / basic HTML for link -> inject as HTML
+        appendHTML(`<div class="bot-msg fade-in">${data.reply}</div>`);
+      } catch (err) {
+        appendHTML(`<div class="bot-msg fade-in">Something went wrong. Try again later.</div>`);
+      }
+    }
+
+    // minimal html escaper for user text
+    function escapeHtml(str) {
+      return str
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#039;');
+    }
+
+    // focus input on load
+    window.onload = () => input.focus();
+  </script>
+</body>
+</html>
