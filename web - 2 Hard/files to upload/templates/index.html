@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="card">
+  <h2>Design Preview</h2>
+  <p>Enter a preview template for the shop sign. Keep it simple — the owner likes clean designs.</p>
+
+  <!-- subtle, not-obvious hint tucked in a comment -->
+  <!-- The carpenter left notes for a house plan in a private archive. Ask for details — but quietly. -->
+  <!-- hidden owner reference: Adam Smartschan -->
+
+  <form action="{{ url_for('render_preview') }}" method="post" class="form">
+    <label for="template">Template</label>
+    <textarea id="template" name="template" rows="6" placeholder="e.g. Hello, {{ shop.name }}"></textarea>
+    <div class="controls">
+      <button type="submit" class="btn">Preview</button>
+    </div>
+  </form>
+
+  <p class="tiny">Tip: the preview engine accepts simple template expressions. Keep it tasteful.</p>
+</section>
+{% endblock %}
+
+<footer>
+  © 2025 Challenge Author — Suraj Shankhpal
+</footer>

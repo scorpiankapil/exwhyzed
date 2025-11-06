@@ -1,0 +1,16 @@
+{% extends "layout.html" %} {% block content %}
+<section class="card">
+  <h2>Preview Output</h2>
+  <div class="preview" aria-live="polite">
+    <!-- output may contain HTML from template rendering -->
+    {{ output|safe }}
+  </div>
+
+  <a class="btn ghost" href="{{ url_for('index') }}">Back</a>
+</section>
+{% endblock %}
+<footer class="footer">
+  <div class="container">
+    <small> © 2025 Challenge Author — Suraj Shankhpal </small>
+  </div>
+</footer>

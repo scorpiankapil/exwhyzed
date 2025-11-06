@@ -1,0 +1,3 @@
+A small family has just opened a mysterious online bakery called “Little Bakery”. Everyone thinks it’s just a simple cake delivery website, but rumors say Adam hides secret recipes that can only be accessed through the special endpoints of his site.
+
+Players stumble upon the bakery’s public page and see some broken links. One link leads to a “Not Found” page, but something seems off — the error page looks almost real, yet the section glows in the dark… or maybe it’s just another portal or dark-mode.

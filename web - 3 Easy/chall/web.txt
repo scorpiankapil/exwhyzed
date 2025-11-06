@@ -1,0 +1,8 @@
+Elias Carpenter was a quiet craftsman who built furniture, clocks, and secret compartments.
+Before he passed away, he left behind a digital vault filled with old workshop files — blueprints, notes, and a few odd strings of letters.
+
+Rumor says one of those strange strings hides his final signature, a secret left for anyone clever enough to find it.
+Your task is to explore the workshop’s vault, uncover the clues, and decode the hidden message buried deep within the archive.
+
+But be careful — the workshop’s preview system doesn’t behave like an ordinary viewer.
+It sometimes reveals more than it should to anyone who knows how to ask the right way…

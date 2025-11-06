@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CTF Login Challenge</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="form-card">
+      <h2>CTF7 Login</h2>
+      <p class="subtitle">Enter your credentials</p>
+      <form method="POST" action="/login">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input id="username" name="username" type="text" placeholder="Enter username" autocomplete="off" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Enter password" autocomplete="off" required>
+        </div>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

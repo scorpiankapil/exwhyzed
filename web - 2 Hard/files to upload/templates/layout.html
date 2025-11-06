@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{ title or "Wood & Wonder Workshop" }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="brand">{{ shop.name }}</h1>
+        <p class="tag">A quiet shop with many secrets.</p>
+      </div>
+    </header>
+
+    <main class="container">{% block content %}{% endblock %}</main>
+
+    <footer class="footer">
+      <div class="container">
+        <small> © 2025 Challenge Author — Suraj Shankhpal </small>
+      </div>
+    </footer>
+  </body>
+</html>

